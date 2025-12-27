@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'features/riverpod_examples/screens/riverpod_demo_screen.dart';
 import 'features/bloc_examples/counter/counter_screen.dart';
+import 'features/task_manager/presentation/screens/task_list_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -49,13 +50,10 @@ class HomeScreen extends StatelessWidget {
             subtitle: 'Full app with offline storage',
             icon: Icons.task_alt,
             color: const Color(0xFF10B981),
-            onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Coming soon! Building this next...'),
-                ),
-              );
-            },
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const TaskListScreen()),
+            ),
           ),
           const SizedBox(height: 12),
           _buildNavigationCard(

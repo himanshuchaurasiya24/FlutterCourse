@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'core/theme/app_theme.dart';
 import 'home_screen.dart';
+import 'features/task_manager/data/local/hive_service.dart';
 
-void main() {
+void main() async {
+  // Ensure Flutter is initialized
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Hive
+  final hiveService = HiveService();
+  await hiveService.init();
+
   runApp(
     // ProviderScope is required for Riverpod to work
     // It stores the state of all providers
