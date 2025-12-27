@@ -1,40 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'core/theme/app_theme.dart';
-import 'home_screen.dart';
+import 'features/task_manager/presentation/screens/task_list_screen.dart';
 import 'features/task_manager/data/local/hive_service.dart';
 
 void main() async {
   // Ensure Flutter is initialized
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Hive
+  // Initialize Hive for local storage
   final hiveService = HiveService();
   await hiveService.init();
 
   runApp(
     // ProviderScope is required for Riverpod to work
-    // It stores the state of all providers
-    const ProviderScope(child: MyApp()),
+    const ProviderScope(child: TaskManagerApp()),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class TaskManagerApp extends StatelessWidget {
+  const TaskManagerApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Pro Course',
+      title: 'Task Manager',
       debugShowCheckedModeBanner: false,
 
-      // Use custom theme from AppTheme
+      // Use custom Material 3 theme
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
 
-      // Start with HomeScreen
-      home: const HomeScreen(),
+      // Start directly with Task Manager
+      home: const TaskListScreen(),
     );
   }
 }
