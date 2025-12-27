@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'features/riverpod_examples/screens/riverpod_demo_screen.dart';
-import 'features/bloc_examples/counter/counter_screen.dart';
 import 'features/task_manager/presentation/screens/task_list_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,51 +20,14 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(height: 12),
           _buildNavigationCard(
             context,
-            title: 'Riverpod Examples',
-            subtitle: 'StateProvider, FutureProvider, StreamProvider',
-            icon: Icons.water_drop,
-            color: const Color(0xFF6366F1),
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => const RiverpodDemoScreen()),
-            ),
-          ),
-          const SizedBox(height: 12),
-          _buildNavigationCard(
-            context,
-            title: 'Bloc Examples',
-            subtitle: 'Events, States, Business Logic',
-            icon: Icons.architecture,
-            color: const Color(0xFF8B5CF6),
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => const CounterScreen()),
-            ),
-          ),
-          const SizedBox(height: 12),
-          _buildNavigationCard(
-            context,
-            title: 'Task Manager (Riverpod)',
-            subtitle: 'Full app with offline storage',
+            title: 'Task Manager',
+            subtitle: 'Complete task management with Riverpod & Hive',
             icon: Icons.task_alt,
             color: const Color(0xFF10B981),
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(builder: (_) => const TaskListScreen()),
             ),
-          ),
-          const SizedBox(height: 12),
-          _buildNavigationCard(
-            context,
-            title: 'Task Manager (Bloc)',
-            subtitle: 'Same app, different approach',
-            icon: Icons.checklist,
-            color: const Color(0xFFF59E0B),
-            onTap: () {
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(const SnackBar(content: Text('Coming soon!')));
-            },
           ),
           const SizedBox(height: 24),
           _buildProgressCard(),
@@ -112,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 4),
                       Text(
-                        'Your journey from intermediate to pro starts here',
+                        'Task Management App with Riverpod',
                         style: TextStyle(color: Colors.white70, fontSize: 14),
                       ),
                     ],
@@ -208,12 +169,12 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 12),
-            _buildProgressItem('Module 1: State Management', 0.25),
+            _buildProgressItem('Module 1: State Management', 1.0),
             _buildProgressItem('Module 2: Navigation', 0.0),
             _buildProgressItem('Module 3: Performance', 0.0),
             const SizedBox(height: 8),
             const Text(
-              '8 modules total • Keep going!',
+              '1 of 8 modules complete • Great start!',
               style: TextStyle(fontSize: 12, color: Colors.grey),
             ),
           ],
